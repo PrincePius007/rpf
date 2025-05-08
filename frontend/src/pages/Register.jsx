@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import API from '../axios';
-import { getCSRFToken } from '../axios';
+// import { getCSRFToken } from '../axios';
 
 export default function Register() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });

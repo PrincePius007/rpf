@@ -1,8 +1,5 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import axios from '../axios';
 
 const TaskForm = () => {
   const [title, setTitle] = useState('');
@@ -10,9 +7,13 @@ const TaskForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://127.0.0.1:8000/api/tasks', { title,address });
-    setTitle('');
-    setAddress('');
+    try {
+      await axios.post('/tasks', { title, address });
+      setTitle('');
+      setAddress('');
+    } catch (error) {
+      console.error('Error adding task:', error);
+    }
   };
 
   return (

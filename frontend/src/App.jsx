@@ -4,6 +4,7 @@ import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Dashboard from './components/Dashbord';
 
 function App() {
   const [user, setUser] = useState(null); // Tracks logged-in user
@@ -22,11 +23,12 @@ function App() {
         <nav>
           {!user ? (
             <>
-              <Link to="/login">Login</Link> | <Link to="/register">Register</Link>
+              <Link to="/login">Login</Link> | <Link to="/register">Register</Link>|<Link to="/login">Logout</Link>
             </>
+              
           ) : (
             <>
-              <span>Welcome, {user.name}</span> | 
+              <span>Welcome, {user.name}</span> 
               <button onClick={handleLogout}>Logout</button>
             </>
           )}
@@ -35,7 +37,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/register" element={<Register />} />
-          
+          <Route path="/dash" element={<Dashboard />} />
           <Route
             path="/"
             element={

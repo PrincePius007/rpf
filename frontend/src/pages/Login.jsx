@@ -14,6 +14,7 @@ function Login({ onLogin }) {
       const userData = response.data.user;
       onLogin(userData); // Pass user data to onLogin function
       alert('Login successful');
+      window.location.href='/dash';
     } catch (err) {
       setError('Invalid credentials. Please try again.');
     }
